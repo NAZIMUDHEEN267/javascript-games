@@ -1,0 +1,457 @@
+
+/* variables */
+:root {
+    --gradient-1: #408ec6;
+    --gradient-2: #7a2048;
+    --nav-bg: #1e2761;
+    --text-clr: #fff;
+    --player: #390540;
+    --player-light: #6b0c78;
+    --player-light-2: #aa0dbf;
+    --computer: #064d5c;
+    --computer-light: #038fab;
+    --computer-light-2: #09bfe3;
+    --black: #000;
+    --item-bg: grey;
+    --item-border: #373a3a;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* font family */
+@font-face {
+    font-family: myFont;
+    src: url("./Assets/Cairo/static/Cairo-Medium.ttf");
+}
+
+/* overlay */
+.overlay{ 
+    position: relative;
+    z-index: 500;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* display */
+.hide {
+    visibility: hidden;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    font-family: myFont;
+    background: linear-gradient(159deg, var(--gradient-1), var(--gradient-2), var(--nav-bg));
+    color: var(--text-clr);
+}
+
+/* header section */
+.header {
+    width: 100%;
+    height: 10vh;
+    background: var(--nav-bg);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.header .nav {
+    max-width: 1152px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav h2{
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+/* main section */
+.main {
+    padding: 1rem;
+}
+
+/* game items */
+.game-materials {
+    display: flex;
+    min-height: 80vh;
+}
+
+.game__items {
+    flex: 3;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.game__items .items {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.rock img, .paper img, .scissor img, .result img {
+    width: 70px;
+    height: 70px;
+}
+
+.shape {
+    display: inline-block;
+    border: 5px solid var(--item-border);
+    padding: 1rem;
+    border-radius: 50%;
+    background: var(--item-bg);
+}
+
+/* play-btn animation */
+@keyframes zoom {
+    from {
+        transform: scale(1.1);
+    }to {
+        transform: scale(1);
+    }
+}
+
+.game__items .play-btn {
+    padding: 10px 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-clr);
+    background: var(--black);
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid var(--text-clr);
+}
+
+.game__items .play:hover {
+    background: #111;
+}
+
+.game__players {
+    flex: 1;
+    align-self: center;
+}
+
+.game__players .icon{
+    display: flex;
+    gap: .5rem;
+    margin-bottom: .5rem;
+} 
+
+.icon .icon-value {
+    width: 40px;
+    height: 40px;
+    background: #000;
+    border-radius: 8px;
+    border: 2px solid #fff;
+}
+
+.icon .icon__color-violet {
+    background: var(--player);
+}
+
+.icon .icon__color-cyan {
+    background: var(--computer);
+}
+
+/* score board*/
+.scoreboard {
+    flex: 2;
+    height: fit-content;
+    display: flex;
+    align-self: center;
+    justify-content: space-around;
+    border-radius: 5px;
+    color: var(--black);
+    text-align: center;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.scoreboard .player {
+    padding: .4rem 0;
+    background: var(--player-light-2);
+    width: 50%;
+}
+
+.scoreboard .computer {
+    padding: .4rem 0;
+    width: 50%;
+    background: var(--gradient-1);
+}
+
+.score-weight {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* result */
+.result{
+    position: fixed;
+    z-index: 9;
+    height: 90vh;
+    width: 90%;
+    padding: 3rem 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #999;
+    left: 5%;
+    top: 5%;
+    border-radius: 10px;
+    color: var(--black);
+    border: 2px dashed var(--player);
+}
+
+.images {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.images::before {
+    content: "?";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 8vh;
+    text-transform: capitalize;
+    font-size: 1.6rem;
+    text-align: center;
+    background: var(--gradient-1);
+    border-bottom: 1px solid #000;
+}
+
+.images .player__result{
+    border: 5px solid var(--player-light-2);
+    background: var(--player);
+    margin-right: 1rem;
+}
+
+.images .computer__result{
+    border: 5px solid var(--computer);
+    background: var(--computer-light-2);
+}
+
+.result .ok-btn {
+    padding: 10px 20px;
+    margin: 0 auto;
+    width: 60%;
+    background: green;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    animation: zoom ease 1500ms 2500ms infinite;
+}
+
+/* message */
+.message {
+    font-size: 2rem;
+}
+
+.message .images::before {
+    content: "result";
+    background: rgb(8, 14, 47);
+    color: var(--text-clr);
+}
+
+.message .restart-btn {
+    background: var(--gradient-2);
+    color: var(--text-clr);
+}
+
+.emoji {
+    font-size: 5rem;
+}
+
+/* instruction */
+.instruction {
+    position: fixed;
+    z-index: 2;
+    top: 5%;
+    left: 5%;
+    padding: .9rem;
+    max-width: 90%;
+    height: 90vh;
+    background: rgb(140, 236, 140);
+    color: initial;
+    overflow: scroll;
+    border: 5px solid green;
+    border-radius: 5px;
+}
+
+.instruction .close-btn {
+    position: absolute;
+    z-index: 500;
+    right: 5%;
+    top: 3%;
+    font-size: 1rem;
+    color: var(--text-clr);
+    background: red;
+    padding: 2px 5px;
+    border-radius: 15%;
+    cursor: pointer;
+}
+
+.instruction::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .instruction {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .instruction .headline {
+      text-align: center;
+      border-bottom: 1px solid #000;
+  }
+
+  .instruction p, .instruction li {
+      font-weight: 400;
+      margin: 1rem 0;
+  }
+
+  .game-name, .instruction .rule {
+      font-weight: 500;
+  }
+
+  .margin {
+      position: relative;
+      margin-right: 1rem;
+    }
+
+  .item {
+      background: var(--computer);
+      color: var(--text-clr);
+      list-style: square;
+      width: fit-content;
+      padding: 1px 10px;
+    }
+
+.instruction h4 {
+    display: inline-block;
+    border-bottom: 2px solid #000;
+}
+
+.instruction p .line {
+    margin: 1rem;
+}
+
+.instruction .result-img {
+    width: 50%;
+}
+
+.instruction .after + div {
+    background: #000;
+}
+
+/* question button for show instruction */
+.question {
+    position: fixed;
+    left: 5%;
+    top: 15%;
+    z-index: 1;
+    background: var(--text-clr);
+    color: var(--black);
+    padding: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.question span {
+    position: absolute;
+    white-space: nowrap;
+    background-color: rgb(195, 187, 187);
+    font-weight: 400;
+    padding: 0 2px;
+    left: 50%;
+    bottom: -50%;
+    display: none;
+}
+
+/* media query */
+@media (max-width: 765px) {
+    .game-materials {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .game-materials .game__players{
+        flex: none;
+        display: flex;
+    }
+
+    .game__players .icon {
+        margin: 0 1rem;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .icon .icon-value {
+        width: 30px;
+        height: 30px;
+    }
+
+    .items {
+        flex-wrap: wrap;
+    }
+
+    .play-btn{
+        margin-bottom: 1rem;
+    }
+
+    .scoreboard{
+        flex: none;
+        width: 100%;
+    }
+
+    .instruction .score-img, 
+    .instruction .result-img {
+        width: 100%;
+    }
+
+    .question {
+        top: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .message {
+        font-size: 1.5rem;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 450px){
+    .message {
+        font-size: 1rem;
+    }
+
+    .ok-btn {
+        font-size: 12px;
+    }
+
+    .base img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .instruction ul, ol {
+        padding-left: 1rem;
+    }
+}

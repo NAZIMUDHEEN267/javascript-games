@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- manifest file -->
+    <link rel="manifest" href="./manifest.json">
+
+    <!-- css link -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- link to favicon icon -->
+    <link rel="shortcut icon" href="./Assets/favicon.png" type="image/x-icon">
+    
+    <!-- title of the page -->
+    <title>RPS</title>
+</head>
+<body>
+    
+    <!-- header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__name">
+                <h2>rock paper scissor</h2>
+            </div>
+        </nav>
+    </header>
+
+    <!-- main -->
+    <main class="main">
+
+        <div class="game-materials">
+            
+            <div class="game__players">
+                <div class="icon">
+
+                    <div class="icon__color-violet icon-value"></div>
+                    <h4 class="player__name">player</h4>
+                </div>
+
+                <div class="icon">
+                    <div class="icon__color-cyan icon-value"></div>
+                    <h4 class="computer__name">computer</h4>
+                </div>
+            </div>
+     
+            <div class="game__items">
+
+                <div class="items">
+                    <div class="rock shape">
+                        <img src="./Assets/rock.png" alt="rock.png">
+                    </div>
+                    <div class="paper shape">
+                        <img src="./Assets/paper.png" alt="paper.png">
+                    </div>
+                    <div class="scissor shape">
+                        <img src="./Assets/scissor.png" alt="scissor.png">
+                    </div>    
+                </div>
+
+                <div class="button">
+                    <button class="play-btn">play</button>
+                </div>
+            </div>
+
+            <div class="scoreboard">
+                <div class="player">
+                    <h4 class="player__name score-weight">player</h4>
+                    <p class="player__score score-weight">0</p>
+                </div>
+                <div class="computer">
+                    <h4 class="computer__name score-weight">computer</h4>
+                    <p class="computer__score score-weight">0</p>
+                </div>
+            </div>
+    
+        </div>
+    </main>
+
+    <!-- result -->
+    <div class="result pop-up hide">
+        <div class="images">
+            <div class="player__result shape">
+                <img src="./Assets/paper.png" alt="player.png">
+            </div>
+            <div class="computer__result shape">
+                <img src="./Assets/rock.png" alt="computer.png">
+            </div>
+        </div>
+        <button class="ok-btn">ok</button>
+    </div>
+
+    <!-- message -->
+    <div class="message result hide">
+        <div class="messages images">
+            <h3 class="win">congratulations you won!!</h3>
+            <h3 class="lose">computer won!!</h3>
+        </div>
+
+        <div class="emoji"></div>
+
+        <button class="ok-btn restart-btn">restart</button>
+    </div>
+
+    <!-- instruction -->
+    <div class="instruction hide">
+        <div class="close-btn">close</div>
+
+        <h2 class="headline">how to play?
+            <!-- close button -->
+        </h2>
+
+       <article class="base">
+        <p>The game basically known as <span class="game-name">"rock paper scissor"</span>. There are three items are available
+            <ul>
+                <li class="item">rock</li>
+                <div class="rock shape">
+                    <img src="./Assets/rock.png" alt="rock.png">
+                </div>
+                <li class="item">paper</li>
+                <div class="paper shape">
+                    <img src="./Assets/paper.png" alt="paper.png">
+                </div>
+                <li class="item">scissor</li>
+                <div class="scissor shape">
+                    <img src="./Assets/scissor.png" alt="scissor.png">
+                </div>  
+            </ul>
+        </p>
+       </article>
+
+       <article>
+        <p>
+            When you click the "play" button.
+        </p>
+
+        <img src="./Assets/button.png" alt="button.png"> 
+        
+        <p>
+            Computer shuffle the items and give you a result box. That will show each player items (highlighted in players colors)
+        </p>
+
+        <img src="./Assets/result.png" class="result-img" alt="result.png"> 
+
+        <p>
+            Scores are added on scoreboard, which player first hit "10" points, that player will be the winner 
+        </p>        
+        <img src="./Assets/score.png" class="score-img" alt="score.png"> 
+       </article>
+
+       <article class="base">
+                   
+        <h4>game rule</h4>
+        <ol>
+            <li class="rule">rock can beat the scissor</li>
+            <div class="rock shape margin">
+                <img src="./Assets/rock.png" alt="rock.png">
+            </div>
+            <div class="scissor shape">
+                <img src="./Assets/scissor.png" alt="scissor.png">
+            </div>  
+            <li class="rule">scissor can cut the paper</li>
+            <div class="scissor shape margin">
+                <img src="./Assets/scissor.png" alt="scissor.png">
+            </div>  
+            <div class="paper shape">
+                <img src="./Assets/paper.png" alt="paper.png">
+            </div>
+            <li class="rule">paper can wrinkle the rock</li>
+            <div class="paper shape margin">
+                <img src="./Assets/paper.png" alt="paper.png">
+            </div>
+            <div class="rock shape">
+                <img src="./Assets/rock.png" alt="rock.png">
+            </div>
+        </ol>
+       </article>
+
+        <article>
+            <h4>players</h4>
+            <p>In this game there are two players, computer and You (when the game start, you can see a comment box that asking you to enter your name. That name will be show in the scoreboard and players box)</p>
+        </article>
+    </div>
+
+    <!-- question for how to play button -->
+    <button class="question">
+        ?
+        <span>how to play?</span>
+    </button>
+
+    <!-- script js -->
+    <script src="./script.js"></script>
+</body>
+</html>
