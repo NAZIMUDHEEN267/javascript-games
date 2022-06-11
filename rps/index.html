@@ -1,2 +1,108 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- manifest for behave like a application -->
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="PWA Workshop" />
+    <meta name="apple-mobile-web-app-title" content="PWA Workshop" />
+    <meta name="msapplication-starturl" content="/index.html" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- link to favicon icon -->
+    <link rel="shortcut icon" href="./Assets/favicon.png" type="image/x-icon" />
+
+    <!-- css link -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- title for the page -->
+    <title>RPS</title>
+
+    <!-- css rules -->
+    <style>
+      body {
+        background: steelblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .music-btn {
+        border: none;
+      }
+
+      .music-btn img {
+        width: 30px;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        width: 150px;
+        border-radius: 30px;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .start-btn {
+        margin: 1rem 0;
+        background: yellowgreen;
+        color: rgb(88, 14, 14);
+      }
+
+      .install-btn {
+        color: #fff;
+        background: linear-gradient(to left, #8a2387, #e94057, #f27121);
+      }
+    </style>
+  </head>
+  <body>
+    <button class="music-btn play">
+      <img src="./Assets/down.png" alt="mute.png" />
+    </button>
+
+    <h2>Rock Paper Scissor</h2>
+    <a href="./game.html">
+      <button class="start-btn btn">start</button>
+    </a>
+    <button class="install-btn btn">install</button>
+
+    <!-- audion -->
+    <audio src="./Assets/music/entry.mp3" class="audio"></audio>
+
+    <!-- script javascript file -->
+    <script>
+      const musicBtn = document.querySelector(".music-btn");
+      let play = false;
+      var audio = document.querySelector(".audio");
+
+      musicBtn.addEventListener("click", () => {
+        if (!play || audio.muted) {
+          audio.play();
+          audio.muted = false;
+          musicBtn.children[0].src = "./Assets/up.png";
+        } else {
+          audio.muted = true;
+          musicBtn.children[0].src = "./Assets/down.png";
+        }
+        play = true;
+      });
+
+      // service worker register
+      if (window.navigator.serviceWorker) {
+        window.navigator.serviceWorker.register("./sw.js");
+      }
+    </script>
+  </body>
 </html>

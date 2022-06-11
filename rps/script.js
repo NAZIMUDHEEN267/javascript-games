@@ -1,7 +1,7 @@
 
 // variables 
 const body = document.querySelector("body");
-// const inputValue = prompt("please enter your name, only 5 letters are allowed");
+const inputValue = prompt("please enter your name, only 5 letters are allowed");
 const playerNames = document.querySelectorAll(".player__name");
 const playBtn = document.querySelector(".play-btn");
 const okBtn = document.querySelector(".ok-btn");
@@ -26,11 +26,11 @@ const closeBtn = document.querySelector(".close-btn");
 let plyrTotal = 0;
 let compTotal = 0;
 
-// if (inputValue) {
-//     playerNames.forEach((name) => name.innerHTML = inputValue.slice(0, 5))
-// } else {
-//     playerNames.forEach((name) => name.innerHTML = 'you')
-// }
+if (inputValue) {
+    playerNames.forEach((name) => name.innerHTML = inputValue.slice(0, 5))
+} else {
+    playerNames.forEach((name) => name.innerHTML = 'you')
+}
 
 // image function
 const image = (val1, val2) => {
@@ -99,7 +99,7 @@ okBtn.addEventListener("click", () => {
 
     popUp.classList.toggle("hide");
 
-    if(plyrTotal >= 10) {
+    if (plyrTotal >= 10) {
         cssClass();
         winner.classList.remove("hide");
 
@@ -150,5 +150,6 @@ closeBtn.addEventListener("click", () => {
 })
 
 // service worker registration
-window.navigator.serviceWorker.register("./sw.js");
-
+if (window.navigator.serviceWorker) {
+    window.navigator.serviceWorker.register("./sw.js");
+}

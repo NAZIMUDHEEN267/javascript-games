@@ -1,6 +1,14 @@
 {
     "name": "rock_paper_scissor",
     "short_name": "RPS",
+    "scope": ".",
+    "display": "standalone",
+    "orientation": "portrait",
+    "start_url": "index.html",
+    "theme_color": "#9c0e6f",
+    "background_color": "#c7284a",
+    "description": "Rock Paper Scissor",
+    "purpose": "any maskable",
     "icons": [
         {
             "src": "./Assets/icons/icon-512.jpg",
@@ -52,13 +60,5 @@
             "sizes": "72x72",
             "type": "image/jpg"
         }
-    ],
-    "scope": ".",
-    "display": "standalone",
-    "orientation": "portrait",
-    "start_url": "index.html",
-    "theme_color": "#9c0e6f",
-    "background_color": "#c7284a",
-    "description": "Rock Paper Scissor",
-    "purpose": "any maskable"
+    ]
 }

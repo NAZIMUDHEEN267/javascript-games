@@ -24,7 +24,7 @@
 /* font family */
 @font-face {
     font-family: myFont;
-    src: url("./Assets/Cairo/static/Cairo-Medium.ttf");
+    src: url("./Assets/Cairo/static/Cairo-Medium.woff");
 }
 
 /* overlay */
@@ -47,6 +47,7 @@ body {
     font-family: myFont;
     background: linear-gradient(159deg, var(--gradient-1), var(--gradient-2), var(--nav-bg));
     color: var(--text-clr);
+    overflow: hidden;
 }
 
 /* header section */
@@ -215,7 +216,7 @@ body {
 .images {
     display: flex;
     justify-content: space-evenly;
-    padding-top: 1rem;
+    padding-top: 3rem;
     flex-wrap: wrap;
 }
 
@@ -293,6 +294,17 @@ body {
     border-radius: 5px;
 }
 
+/* close button animation */
+@keyframes blinking {
+    40% {
+        transform: scale(.8);
+    } 60% {
+        transform: scale(.9);
+    } 90% {
+        transform: scale(1.1);
+    }
+}
+
 .instruction .close-btn {
     position: absolute;
     z-index: 500;
@@ -304,6 +316,7 @@ body {
     padding: 2px 5px;
     border-radius: 15%;
     cursor: pointer;
+    animation: blinking 2s .2s ease infinite;
 }
 
 .instruction::-webkit-scrollbar {
