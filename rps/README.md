@@ -6,10 +6,10 @@ Game included funny sounds and instant point counting table. Offcourse your oppo
 feel free to play [click](https://rainbow-duckanoo-2f63e9.netlify.app)
 
 ## game
-> when you open the game window open like this. Click on **play** button ( **install** button currently not working ) <br/>
+#### when you open the game window open like this. Click on **play** button ( **install** button currently not working ) <br/>
 ![opening](./Assets/opening.png)
 
-> play the game have fun <br/>
+#### play the game have fun <br/>
 ![play](./Assets/game.png)
 
 # Used technologies
